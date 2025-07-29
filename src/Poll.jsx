@@ -38,7 +38,7 @@ function Poll() {
 
   return (
     <div style={{ textAlign: "center", marginTop: "50px" }}>
-      <h2>Cual gana?</h2>
+      <h2>AREOPAGO ONLINE</h2>
       <button onClick={() => vote("optionA")} disabled={voted}>Justicia racional</button>
       <button onClick={() => vote("optionB")} disabled={voted}>Justicia a mano propia</button>
 
