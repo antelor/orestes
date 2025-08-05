@@ -64,15 +64,16 @@ function Admin() {
         </Marquee>
       </div>
 
-      <Marquee className="marquee" speed={40} gradient={false} delay={0}>
-        {[1,2,3,4,5,6,7,8,9,10 ].map((i) => (
-          <div key={i} className="marquee-item">
-            <h1>AREOPAGO ONLINE</h1>
-          </div>
-      ))}
-      </Marquee>
+      <div className="marqueeContainer">
+        <Marquee className="marquee" speed={40} gradient={false} delay={0}>
+          {[1,2,3,4,5,6,7,8,9,10 ].map((i) => (
+            <div key={i} className="marquee-item">
+              <h1>AREOPAGO ONLINE</h1>
+            </div>
+        ))}
+        </Marquee>
+      </div>
       
-      <div>
         <div className="buttonDiv">
           <button className='btn1' onClick={() => vote("optionA")} disabled={voted}>
             <span className="button_top">
@@ -84,14 +85,13 @@ function Admin() {
               Justicia por mano propia
             </span>
           </button>
-        </div>
 
-        <button onClick={handleSeeResults} style={{ marginTop: "20px" }}>
-          <span className="button_top">
-            Ver resultados
-          </span>
-        </button>
-      </div>
+          <button className='btn3' onClick={handleSeeResults}>
+            <span className="button_top">
+              Ver resultados
+            </span>
+          </button>
+        </div>
       
       <div className="marqueeContainer">
         <Marquee className="marquee" speed={100} gradient={false} delay={0}>

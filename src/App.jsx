@@ -6,6 +6,7 @@ import Justicia from "./Justicia";
 import Venganza from "./Venganza";
 import Admin from "./Admin";
 import './App.css';
+import './index.css';
 
 function App() {
   return (

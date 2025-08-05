@@ -57,13 +57,16 @@ function Poll() {
         </Marquee>
       </div>
 
-      <Marquee className="marquee" speed={40} gradient={false} delay={0}>
-        {[1,2,3,4,5,6,7,8,9,10 ].map((i) => (
-          <div key={i} className="marquee-item">
-            <h1>AREOPAGO ONLINE</h1>
-          </div>
-      ))}
-      </Marquee>
+      <div className="marqueeContainer">
+        <Marquee className="marquee" speed={40} gradient={false} delay={0}>
+          {[1,2,3,4,5,6,7,8,9,10 ].map((i) => (
+            <div key={i} className="marquee-item">
+              <h1>AREOPAGO ONLINE</h1>
+            </div>
+        ))}
+        </Marquee>
+      </div>
+
       
       <div>
         <div className="buttonDiv">

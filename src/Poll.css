@@ -5,12 +5,15 @@
     justify-content: flex-start;
     padding: 2rem;
     gap: 25px;
-    border-radius: 15px;
     color: white;
     width: 100%;
+    height: 100vh;
     box-sizing: border-box;
     position: relative;  
     z-index: 1;
+    background: #a14949;
+    background: linear-gradient(57deg,rgba(74, 74, 74, 1) 0%, rgba(115, 0, 10, 1) 100%);
+
 }
 
 .marqueeContainer {
@@ -35,8 +38,7 @@
 }
   
 .marquee-img {
-    height: 30vh;      /* Controls image height inside marquee */
-    max-height: 30vh;  
+    max-height: 100%;  
     width: auto;
     object-fit: contain;
     border-radius: 8px;
@@ -45,6 +47,7 @@
 .buttonDiv {
     display: flex;
     gap: 15px;
+    width: 100%;
     margin-top: 1rem;
     margin-bottom: 1rem;
     align-items: center;
@@ -74,6 +77,10 @@ button {
 
 .btn2{
     --button_color: #7D1010;
+}
+
+.btn3{
+    --button_color: #107d31;
 }
 
 .buttonDiv button {
