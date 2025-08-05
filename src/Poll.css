@@ -1,0 +1,88 @@
+.mainDiv {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 2rem;
+    gap: 25px;
+    border-radius: 15px;
+    color: white;
+    width: 100%;
+    box-sizing: border-box;
+    position: relative;  
+    z-index: 1;
+}
+
+.marqueeContainer {
+    height: 30vh;
+    width: 100%;
+    overflow: hidden;
+    position: relative;  
+    z-index: 0;
+}
+  
+.marquee {
+    display: flex;
+    height: 100%;
+    align-items: center;
+}
+  
+.marquee-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 2rem; /* Space between images */
+}
+  
+.marquee-img {
+    height: 30vh;      /* Controls image height inside marquee */
+    max-height: 30vh;  
+    width: auto;
+    object-fit: contain;
+    border-radius: 8px;
+}
+  
+.buttonDiv {
+    display: flex;
+    gap: 15px;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+  
+button {
+    --button_radius: 0.75em;
+    --button_color: #e8e8e8;
+    --button_outline_color: #424242;
+    --shadow-color: rgba(0, 0, 0, 0.2);
+    --highlight-color: rgba(71, 48, 48, 0.2);
+    font-weight: bold;
+    border: none;
+    padding: 0;
+    border-radius: var(--button_radius);
+    background: linear-gradient(
+      to bottom right,
+      var(--highlight-color),
+      var(--shadow-color)
+    );
+    cursor: pointer;
+}
+  
+.button_top {
+    display: block;
+    box-sizing: border-box;
+    border-radius: var(--button_radius);
+    padding: 0.75em 1.5em;
+    background: var(--button_color);
+    color: var(--button_outline_color);
+    transform: translateY(-0.2em);
+    transition: transform 0.1s ease;
+}
+  
+button:hover .button_top {
+    transform: translateY(-0.33em);
+}
+  
+button:active .button_top {
+    transform: translateY(0);
+}
+  

@@ -2,15 +2,25 @@
 import React, { useEffect, useState } from "react";
 import { db } from "./firebase";
 import { doc, getDoc, updateDoc, onSnapshot } from "firebase/firestore";
+import { useNavigate } from "react-router-dom";
+import './Poll.css';
+import Marquee from "react-fast-marquee";
+import img1 from './assets/1.jpeg'
+import img2 from './assets/2.png'
+import img3 from './assets/3.png'
+import img4 from './assets/4.png'
+import img5 from './assets/familia.png'
+import img6 from './assets/venganza.png'
+
 
 function Poll() {
   const [votes, setVotes] = useState({ optionA: 0, optionB: 0 });
   const [voted, setVoted] = useState(false);
+  const navigate = useNavigate();
 
   const pollRef = doc(db, "polls", "mainPoll");
 
   useEffect(() => {
-    // Listen for real-time updates
     const unsubscribe = onSnapshot(pollRef, (docSnap) => {
       if (docSnap.exists()) {
         setVotes(docSnap.data());
@@ -32,19 +42,63 @@ function Poll() {
     }
   };
 
-  const totalVotes = votes.optionA + votes.optionB;
-  const percent = (value) =>
-    totalVotes ? ((value / totalVotes) * 100).toFixed(1) : 0;
+  const handleSeeResults = () => {
+    if (votes.optionA >= votes.optionB) {
+      navigate("/justicia");
+    } else {
+      navigate("/venganza");
+    }
+  };
+
+  console.log(img1, img2, img3, img4, img5, img6);
+
 
   return (
-    <div style={{ textAlign: "center", marginTop: "50px" }}>
-      <h2>AREOPAGO ONLINE</h2>
-      <button onClick={() => vote("optionA")} disabled={voted}>Justicia racional</button>
-      <button onClick={() => vote("optionB")} disabled={voted}>Justicia a mano propia</button>
+    <div className="mainDiv">
+      <div className="marqueeContainer">
+        <Marquee className="marquee" speed={200} gradient={false} delay={0}>
+          {[img1, img2, img3, img4, img5, img6, img1, img2, img3, img4, img5, img6, ].map((img, i) => (
+            <div key={i} className="marquee-item">
+              <img src={img} alt={`img-${i}`} className="marquee-img" />
+            </div>
+        ))}
+        </Marquee>
+      </div>
 
-      <h3>Resultados</h3>
-      <p>Justicia racional: {votes.optionA} votos ({percent(votes.optionA)}%)</p>
-      <p>Justicia a mano propia: {votes.optionB} votos ({percent(votes.optionB)}%)</p>
+      <div>
+        <h2>AREOPAGO ONLINE</h2>
+
+        <div className="buttonDiv">
+          <button onClick={() => vote("optionA")} disabled={voted}>
+            <span className="button_top">
+              Justicia Racional
+            </span>
+          </button>
+          <button onClick={() => vote("optionB")} disabled={voted}>
+            <span className="button_top">
+              Justicia a mano propia
+            </span>
+          </button>
+        </div>
+
+
+        <button onClick={handleSeeResults} style={{ marginTop: "20px" }}>
+          <span className="button_top">
+            Ver resultados
+          </span>
+        </button>
+      </div>
+      
+      <div className="marqueeContainer">
+        <Marquee className="marquee" speed={100} gradient={false} delay={0}>
+          {[img1, img2, img3, img4, img5, img6, img1, img2, img3, img4, img5, img6, ].map((img, i) => (
+            <div key={i} className="marquee-item">
+              <img src={img} alt={`img-${i}`} className="marquee-img" />
+            </div>
+        ))}
+        </Marquee>
+      </div>
+
     </div>
   );
 }
