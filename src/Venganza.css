@@ -1,3 +1,18 @@
+.container2{
+    height: 100vh;
+    width: 100%;
+    background: #df1515;
+    background: linear-gradient(57deg, rgb(160, 50, 50) 0%, rgb(70, 3, 3) 100%);
+    color: white;
+    font-family: sans-serif;
+    gap: 2rem;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
 
 /* Full page gradient */
 .stacked-page2 {
@@ -13,19 +28,52 @@
     font-family: sans-serif;
     gap: 2rem;
     overflow: hidden;
+}
+
+.text2 {
+    position: relative;
+    width: 70%;
+    height: fit-content;
+    padding: 1rem;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: 3rem;
+    color: white;
+    /* Remove opacity */
+    background: none;
+    z-index: 0;
+    overflow: hidden;
   }
   
+  /* Use pseudo-element for semi-transparent background */
+.text2::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(57deg, rgb(160, 50, 50) 0%, rgb(70, 3, 3) 100%);
+    border-radius: 20px;
+    z-index: -1;
+}
+
+.options {
+    margin-top: 25px;
+}
+  
+  
 /* Each fading section */
-.fade-section {
+.fade-section2 {
     opacity: 0;
     transform: translateY(20px);
     transition: opacity 1s ease, transform 1s ease;
-    font-size: 2rem;
+    font-size: 3rem;
     text-align: center;
 }
   
 /* Class applied when section should be visible */
-.fade-section.visible {
+.fade-section2.visible {
     opacity: 1;
     transform: translateY(0);
 }

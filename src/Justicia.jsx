@@ -5,6 +5,8 @@ import  { useEffect } from "react";
 import { db } from "./firebase";
 import { doc, onSnapshot } from "firebase/firestore";
 import './Justicia.css';
+import corcho from './assets/corcho.png';
+
 
 const elements = [
     "Justicia Racional",
@@ -50,21 +52,33 @@ function Justicia() {
         totalVotes ? ((value / totalVotes) * 100).toFixed(1) : 0;
 
     return (
-        <div className="stacked-page">
-            {elements.map((text, index) => (
-                <div
-                key={index}
-                className={`fade-section ${index < visibleCount ? "visible" : ""}`}
-                >
-                {text}
+        <div className='container'>
+            <div className="stacked-page" style={{
+                backgroundImage: `url(${corcho})`,
+                backgroundSize: 'cover',
+                backgroundPosition: 'center',
+                backgroundRepeat: 'no-repeat',
+                }}>
+                <div className='text'>
+                    {elements.map((text, index) => (
+                        <div
+                        key={index}
+                        className={`fade-section ${index < visibleCount ? "visible" : ""}`}
+                        >
+                        {text}
+                        </div>
+                    ))}
+
+                    <div  className='options'>
+                        <p>
+                            Justicia racional: {votes.optionA} votos ({percent(votes.optionA)}%)
+                        </p>
+                        <p>
+                            Justicia a mano propia: {votes.optionB} votos ({percent(votes.optionB)}%)
+                        </p>
+                    </div>
                 </div>
-            ))}
-            <p>
-                Justicia racional: {votes.optionA} votos ({percent(votes.optionA)}%)
-            </p>
-            <p>
-                Justicia a mano propia: {votes.optionB} votos ({percent(votes.optionB)}%)
-            </p>
+                </div>
         </div>
     );
 }

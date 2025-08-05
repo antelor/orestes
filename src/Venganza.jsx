@@ -5,6 +5,7 @@ import  { useEffect } from "react";
 import { db } from "./firebase";
 import { doc, onSnapshot } from "firebase/firestore";
 import './Venganza.css';
+import corcho from './assets/corcho.png';
 
 const elements = [
     "Justicia por Mano Propia",
@@ -50,21 +51,33 @@ function Venganza() {
         totalVotes ? ((value / totalVotes) * 100).toFixed(1) : 0;
 
     return (
-        <div className="stacked-page2">
-            {elements.map((text, index) => (
-                <div
-                key={index}
-                className={`fade-section ${index < visibleCount ? "visible" : ""}`}
-                >
-                {text}
+        <div className='container2'>
+            <div className="stacked-page2" style={{
+                backgroundImage: `url(${corcho})`,
+                backgroundSize: 'cover',
+                backgroundPosition: 'center',
+                backgroundRepeat: 'no-repeat',
+                }}>
+                <div className='text2'>
+                    {elements.map((text, index) => (
+                        <div
+                        key={index}
+                        className={`fade-section2 ${index < visibleCount ? "visible" : ""}`}
+                        >
+                        {text}
+                        </div>
+                    ))}
+
+                    <div  className='options'>
+                        <p>
+                            Justicia racional: {votes.optionA} votos ({percent(votes.optionA)}%)
+                        </p>
+                        <p>
+                            Justicia a mano propia: {votes.optionB} votos ({percent(votes.optionB)}%)
+                        </p>
+                    </div>
                 </div>
-            ))}
-            <p>
-                Venganza racional: {votes.optionA} votos ({percent(votes.optionA)}%)
-            </p>
-            <p>
-                Venganza a mano propia: {votes.optionB} votos ({percent(votes.optionB)}%)
-            </p>
+                </div>
         </div>
     );
 }
