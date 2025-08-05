@@ -65,28 +65,27 @@ function Poll() {
         </Marquee>
       </div>
 
+      <Marquee className="marquee" speed={40} gradient={false} delay={0}>
+        {[1,2,3,4,5,6,7,8,9,10 ].map((i) => (
+          <div key={i} className="marquee-item">
+            <h1>AREOPAGO ONLINE</h1>
+          </div>
+      ))}
+      </Marquee>
+      
       <div>
-        <h2>AREOPAGO ONLINE</h2>
-
         <div className="buttonDiv">
           <button onClick={() => vote("optionA")} disabled={voted}>
             <span className="button_top">
-              Justicia Racional
+              Justicia racional
             </span>
           </button>
           <button onClick={() => vote("optionB")} disabled={voted}>
             <span className="button_top">
-              Justicia a mano propia
+              Justicia por mano propia
             </span>
           </button>
         </div>
-
-
-        <button onClick={handleSeeResults} style={{ marginTop: "20px" }}>
-          <span className="button_top">
-            Ver resultados
-          </span>
-        </button>
       </div>
       
       <div className="marqueeContainer">
