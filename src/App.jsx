@@ -4,7 +4,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Poll from "./Poll";
 import Justicia from "./Justicia";
 import Venganza from "./Venganza";
-import Admin from "./Venganza";
+import Admin from "./Admin";
 import './App.css';
 
 function App() {
@@ -12,9 +12,9 @@ function App() {
     <Router>
       <Routes>
         <Route path="/" element={<Poll />} />
+        <Route path="/admin" element={<Admin />} />
         <Route path="/justicia" element={<Justicia />} />
         <Route path="/venganza" element={<Venganza />} />
-        <Route path="/admin" element={<Admin />} />
       </Routes>
     </Router>
   );

@@ -1,4 +1,3 @@
-// src/Poll.js
 import React, { useEffect, useState } from "react";
 import { db } from "./firebase";
 import { doc, getDoc, updateDoc, onSnapshot } from "firebase/firestore";
@@ -13,7 +12,7 @@ import img5 from './assets/familia.png'
 import img6 from './assets/venganza.png'
 
 
-function Poll() {
+function Admin() {
   const [votes, setVotes] = useState({ optionA: 0, optionB: 0 });
   const [voted, setVoted] = useState(false);
   const navigate = useNavigate();
@@ -75,14 +74,14 @@ function Poll() {
       
       <div>
         <div className="buttonDiv">
-          <button onClick={() => vote("optionA")} disabled={voted}>
+          <button className='btn1' onClick={() => vote("optionA")} disabled={voted}>
             <span className="button_top">
-              Justicia Racional
+              Justicia racional
             </span>
           </button>
-          <button onClick={() => vote("optionB")} disabled={voted}>
+          <button className='btn2' onClick={() => vote("optionB")} disabled={voted}>
             <span className="button_top">
-              Justicia a mano propia
+              Justicia por mano propia
             </span>
           </button>
         </div>
@@ -108,4 +107,4 @@ function Poll() {
   );
 }
 
-export default Poll;
+export default Admin;
