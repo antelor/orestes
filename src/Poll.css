@@ -47,12 +47,12 @@
     gap: 15px;
     margin-top: 1rem;
     margin-bottom: 1rem;
+    align-items: center;
 }
   
 button {
     --button_radius: 0.75em;
-    --button_color: #e8e8e8;
-    --button_outline_color: #424242;
+    --button_outline_color: #ffffff;
     --shadow-color: rgba(0, 0, 0, 0.2);
     --highlight-color: rgba(71, 48, 48, 0.2);
     font-weight: bold;
@@ -64,7 +64,16 @@ button {
       var(--highlight-color),
       var(--shadow-color)
     );
+    height: 100%;
     cursor: pointer;
+}
+
+.btn1{
+    --button_color: #10457D;
+}
+
+.btn2{
+    --button_color: #7D1010;
 }
 
 .buttonDiv button {

@@ -75,12 +75,12 @@ function Poll() {
       
       <div>
         <div className="buttonDiv">
-          <button onClick={() => vote("optionA")} disabled={voted}>
+          <button className='btn1' onClick={() => vote("optionA")} disabled={voted}>
             <span className="button_top">
               Justicia racional
             </span>
           </button>
-          <button onClick={() => vote("optionB")} disabled={voted}>
+          <button className='btn2' onClick={() => vote("optionB")} disabled={voted}>
             <span className="button_top">
               Justicia por mano propia
             </span>
